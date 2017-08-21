@@ -4,11 +4,6 @@ import {AppContainer} from 'react-hot-loader';
 
 import Root from './root';
 
-
-
-
-
-
 render(
     <AppContainer>
         <Root/>

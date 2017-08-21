@@ -1,14 +1,19 @@
 import React from 'react';
 
-
+import Home from '../containers/Home'
 import List from '../containers/List';
 import Detail from '../containers/Detail';
 import NotFound from '../containers/NotFound';
+import App from '../containers/App';
 
+import { Router, Route, IndexRoute } from 'react-router';
 
 class RouteMap extends React.Component {
- updateHandle() { 
-    console.log('每次router变化之后都会触发') }
+
+updateHandle() { 
+    console.log('每次router变化之后都会触发');
+    //PV统计
+}
      render() { 
         return ( 
             <Router 
@@ -25,4 +30,5 @@ class RouteMap extends React.Component {
     } 
 }
 
+export default RouteMap;
 
