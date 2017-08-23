@@ -1,16 +1,14 @@
 import  React from 'react';
-import { Link } from 'react-router';
 
 
 class Detail extends React.Component{
     render(){
         return(
             <div>
-                <p>Home</p>
-                <p>details</p>
-                <p>Foot</p>
+                <p>details url参数：
+                id:{this.props.params.id}
+                type:{this.props.params.type}</p>
 
-                <Link to='/'> Back Home</Link><br/>
             </div>
         )
     }

@@ -7,7 +7,8 @@
     "test": "",
     "start": "node server",
     "build": "webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "mock": "node --harmony ./mock/server.js"
   },
   "keywords": [
     "es6",
@@ -21,11 +22,14 @@
     "url": "git+https://github.com/xiaolin3303/react-music-player"
   },
   "dependencies": {
+    "es6-promise": "^4.1.1",
     "pubsub-js": "^1.5.4",
     "react": "^15.0.2",
+    "react-addons-pure-render-mixin": "^15.6.0",
     "react-dom": "^15.0.2",
     "react-hot-loader": "^3.0.0-beta.2",
-    "react-router": "^2.8.1"
+    "react-router": "^2.8.1",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -38,6 +42,9 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.16.1",
     "json-loader": "^0.5.4",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-router": "^7.2.1",
     "less": "^2.6.0",
     "less-loader": "^2.2.2",
     "style-loader": "^0.13.1",

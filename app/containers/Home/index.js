@@ -1,16 +1,15 @@
 import React from 'react';
+
 import { Link } from 'react-router';
 
+import getData from '../../fetch/data';
 class Home extends React.Component {
     render(){
         return(
             <div>
-                <p>Home</p>
-                <Link to='/list'> to list</Link><br/>
+                <Link to='/User'> to user</Link><br/>
                 <Link to='/detail/:id'>details</Link>
-                <p>Foot</p>
             </div>
-
         )
     }
 }

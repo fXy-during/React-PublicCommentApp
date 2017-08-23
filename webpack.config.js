@@ -56,5 +56,20 @@ module.exports = {
                 loader: 'style-loader!css-loader!less-loader'
             }
         ]
+    },
+    devServer: {  //端口代理
+        proxy: {
+            // 凡是 '/api' 开头的 http 请求，都会被代理到 3000端口
+            // koa 代码在 ./mock 目录 ，npm run mock
+            './api': {
+                target: 'http:localhost:3000', //可更改为线上数据
+                secure: false
+            }
+        },
+        contentBase: "./public", //本地服务器所加载的页面所在的目录
+        colors: true,//终端输出结果为彩色
+        historyApiFallback: true,// 不跳转
+        inline: true,// 实时更新
+        hot: true // 使用热加载插件 HotModuleReplacementPlugin
     }
 };

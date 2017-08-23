@@ -6,8 +6,8 @@ class List extends React.Component {
     constructor(props){
         super(props);
     }
-    handerClick(page){
-        hashHistory.push('/detail/'+ page); // JS跳转 路由
+    handerClick(page, type){
+        hashHistory.push('/detail/'+ page + type); // JS跳转 路由
     }
     render(){
         const arr = [1,2,3,4];

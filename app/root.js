@@ -29,6 +29,7 @@ import { render } from 'react-dom' ;
 import { hashHistory } from 'react-router' ;
 import RouteMap from './router/routeMap' ;
 
+
 let Hello = React.createClass({
     render(){
         return(
