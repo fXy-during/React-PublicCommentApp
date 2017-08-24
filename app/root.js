@@ -17,11 +17,11 @@ import React from 'react';
 
 
 // //littleApp
-import FilterableProductTable from './components/littleApp';
+// import FilterableProductTable from './components/littleApp';
 
 
 // //todo
-import TodoWrap from './components/Todo';
+// import TodoWrap from './components/Todo';
 
 
 
@@ -29,12 +29,18 @@ import { render } from 'react-dom' ;
 import { hashHistory } from 'react-router' ;
 import RouteMap from './router/routeMap' ;
 
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
 
-let Hello = React.createClass({
+let store = configureStore();
+
+let Root = React.createClass({
     render(){
         return(
             <div>
-                <RouteMap history={hashHistory}/>
+                <Provider store={store}>
+                    <RouteMap history={hashHistory}/>
+                </Provider>
             </div>
         )
     }
@@ -48,4 +54,4 @@ let Hello = React.createClass({
             // <NameFormSelect/>
             // <Reservation/>
             // <FilterableProductTable/>
-export default Hello;
+export default Root;

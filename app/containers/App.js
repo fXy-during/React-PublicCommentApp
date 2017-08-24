@@ -1,6 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
 // import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+import LocalStore from '../util/localStore';
+import { CITYNAME } from '../config/localStoreKey';
+import * as userInfoActionsFormOtherFile from '../actions/userinfo.js';
+
+
+//icon
+import '../static/css/style.less';
+import '../static/css/common.less';
+
 
 class App extends React.Component { 
     constructor(props, context) {
@@ -10,13 +23,26 @@ class App extends React.Component {
             initDone: false
         }
     }
+
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                initDone: true
-            })
+        let cityName = LocalStore.getItem(CITYNAME);
+        if (cityName == null) {
+            cityName = '北京';
+        }
+        console.log(cityName);
+
+        this.setState({
+            initDone: true
         })
+
+        this.props.userinfoActions.update({
+            cityName: cityName
+        })
+
     }
+
+
+
     render() { 
         return ( 
             <div>
@@ -24,12 +50,26 @@ class App extends React.Component {
                 this.props.children:
                  <div>加载中...</div>
             }
-            </div> 
+            </div>
         ) 
     } 
 }
 
-export default App;
+function mapStateToProps(state){
+    return {
+        userinfo: state.userinfo
+    }
+}
+function mapDispatchToProps(dispatch){
+    return {
+        userinfoActions: bindActionCreators(userInfoActionsFormOtherFile, dispatch)
+    }
+} 
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
+
 // <Link to='/'> Back Home</Link><br/>
 // var obj = {a:1,b:2}
 //  obj.c == null && console.log('123')

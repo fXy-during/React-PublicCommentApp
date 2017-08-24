@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?5576jv');
+  src:  url('../fonts/icomoon.eot?5576jv#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?5576jv') format('truetype'),
+    url('../fonts/icomoon.woff?5576jv') format('woff'),
+    url('../fonts/icomoon.svg?5576jv#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-down:before {
+  content: "\e900";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-location:before {
+  content: "\e947";
+}
+.icon-mobile2:before {
+  content: "\e959";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-key:before {
+  content: "\e98d";
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+.icon-star-full:before {
+  content: "\e9d9";
+}
+.icon-arrow-right2:before {
+  content: "\ea3c";
+}
+.icon-arrow-left2:before {
+  content: "\ea40";
+}
+.icon-share:before {
+  content: "\ea7d";
+}

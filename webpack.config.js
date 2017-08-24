@@ -47,6 +47,10 @@ module.exports = {
             //     test: /\.json?$/,
             //     loader: 'json'
             // },
+            { 
+                test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i,
+                loader:'url-loader?limit=5000'
+            }, // 限制大小小于5k
             {
                 test: /\.css$/,
                 loader: "style!css"
