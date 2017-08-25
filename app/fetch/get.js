@@ -7,7 +7,8 @@ export function get(url) {
         credentials: 'include',
         headers: {
             'Accept': 'application/json, text/plain, */*'
-        }
+        },
+        mode: 'cors'
     })
     return result;
 }

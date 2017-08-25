@@ -3,6 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     //devtool: 'eval-source-map',
@@ -22,12 +23,18 @@ module.exports = {
           inject: 'body',
           filename: './index.html'
         }),
+        new OpenBrowserPlugin({
+            url: 'http://localhost:8080'
+        }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('development')
+          __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
         })
+    ],
+    postcss: [
+        require('autoprefixer')
     ],
     module: {
         // resolve:{
@@ -53,27 +60,27 @@ module.exports = {
             }, // 限制大小小于5k
             {
                 test: /\.css$/,
-                loader: "style!css"
+                loader: "style!css!postcss"
             },
             {
                 test: /\.less/,
-                loader: 'style-loader!css-loader!less-loader'
+                loader: 'style-loader!css-loader!postcss-loader!less-loader'
             }
         ]
     },
-    devServer: {  //端口代理
+    devServer: {
         proxy: {
-            // 凡是 '/api' 开头的 http 请求，都会被代理到 3000端口
-            // koa 代码在 ./mock 目录 ，npm run mock
-            './api': {
-                target: 'http:localhost:3000', //可更改为线上数据
-                secure: false
-            }
+          // 凡是 `/api` 开头的 http 请求，都会被代理到 localhost:3000 上，由 koa 提供 mock 数据。
+          // koa 代码在 ./mock 目录中，启动命令为 npm run mock
+          '/api': {
+            target: 'http://localhost:3000',
+            secure: false
+          }
         },
-        contentBase: "./public", //本地服务器所加载的页面所在的目录
-        colors: true,//终端输出结果为彩色
-        historyApiFallback: true,// 不跳转
-        inline: true,// 实时更新
-        hot: true // 使用热加载插件 HotModuleReplacementPlugin
+        // contentBase: "./public", //本地服务器所加载的页面所在的目录
+        colors: true, //终端中输出结果为彩色
+        historyApiFallback: true, //不跳转
+        inline: true, //实时刷新
+        hot: true  // 使用热加载插件 HotModuleReplacementPlugin
     }
 };
