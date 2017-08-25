@@ -4,13 +4,17 @@ import { Link } from 'react-router';
 import './style.less';
 import ListItem from '../../../components/HomeList';
 
+import LoadMore from '../../../components/LoadMore';
+
 import { getListData } from '../../../fetch/home/home.js';
 class AdList extends React.Component{
     constructor(props, context){
         super(props, context);
         this.state = {
-            hasMore: true,
-            data: []
+            hasMore: true,// 记录当前状态下, 还有没有更多的数据可供加载
+            data: [], // 存储列表信息
+            isLoadingMore: false, // 记录当前状态下, 加载中.或者加载完成
+            page: 1 // 下一页的页码
         }
     }
     componentDidMount() {
@@ -22,6 +26,21 @@ class AdList extends React.Component{
         const result = getListData(cityName, 0);
         this.resultHandle(result);
     }
+    // 加载更多数据
+    loadMoreData() {
+        this.setState({
+            isLoadingMore: true
+        })
+        const cityName = this.props.cityName;
+        const page = this.state.page;
+        const result = getListData(cityName, page);
+        this.resultHandle(result)
+
+        this.setState({
+            page: page + 1,
+            isLoadingMore: false
+        })
+    }
     //数据处理
     resultHandle(result){
         result.then(res =>{
@@ -31,7 +50,7 @@ class AdList extends React.Component{
             //储存数据
             this.setState({
                 hasMore: hasMore,
-                data: data
+                data: this.state.data.concat(data)
             })
         })
     }
@@ -41,6 +60,11 @@ class AdList extends React.Component{
             <div id='' className='clear-fix'>
             <h2 className='home-list-title'>猜你喜欢</h2>
             <ListItem data={this.state.data} city={this.props.cityName}/>
+            {
+                this.state.hasMore ? <LoadMore isLoadingMore={
+                    this.state.isLoadingMore}  loadMoreFn={this.loadMoreData.bind(this)}/> : <div></div>
+            }
+
             </div>
         )
     }

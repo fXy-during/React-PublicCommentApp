@@ -19,8 +19,7 @@ class Home extends React.Component {
                 <Ad />
                 <div style={{height:'15px'}}></div>
                 <List cityName={this.props.userinfo.cityName}/>
-                <Link to='/User'> to user</Link><br/>
-                <Link to='/detail/:id'>details</Link>
+
             </div>
         )
     }
@@ -36,3 +35,6 @@ function mapStateToProps(state){
 export default connect(
     mapStateToProps
 )(Home);
+
+                // <Link to='/User'> to user</Link><br/>
+                // <Link to='/detail/:id'>details</Link>
