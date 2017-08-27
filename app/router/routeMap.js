@@ -25,7 +25,7 @@ updateHandle() {
                     <Route path='/city' component={City}/>
                     <Route path='/User' component={User}/>
                     <Route path='/search/:type(/:keyword)' component={Search}/>
-                    <Route path='/detail/:id' component={Detail}/> 
+                    <Route path='/detail/:id' component={Detail}/>  
                     <Route path="*" component={NotFound}/> 
                 </Route> 
             </Router> 

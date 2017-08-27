@@ -1,16 +1,25 @@
 import  React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 import './style.less';
+import SearchInput from '../SearchInput';
 
 class HomeHeader extends React.Component{
+    constructor(props, context){
+        super(props, context);
+        this.state = {
+            value: ''
+        }
+    }
     render(){
         return(
             <div id='home-header' className='clear-fix'>
                 <div className='home-header-left float-left'>
+                <Link to='/city'>
                 <span>{this.props.cityName}</span>
                 &nbsp;
                     <i className='icon-down'></i>
+                </Link>
                 </div>
                 <div className='home-header-right float-right'>
                     <i className='icon-user'></i>
@@ -18,11 +27,17 @@ class HomeHeader extends React.Component{
                 <div className='home-header-middle'>
                     <div className='search-container'>
                         <i className='icon-search'></i>
-                        <input type='text' placeholder='请输入关键字'/>
+                        <SearchInput value='' enterHandle={this.inputValueKey.bind(this)}/>
                     </div>
                 </div>
             </div>
         )
+    }
+    // 接收回车
+    inputValueKey(value){
+
+        // hashHistory.push('/search/all/' + encodeURIComponent(this.state.value))
+        console.log(value);
     }
 }
 
