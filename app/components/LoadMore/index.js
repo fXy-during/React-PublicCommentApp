@@ -28,11 +28,9 @@ class LoadMore extends React.Component{
         function callback() {
             const top = Math.floor(wrapper.getBoundingClientRect().top);
             const windowHeight = window.screen.height;
-            console.log('windowHeight:',windowHeight,'top:',top);
             if (top && top < windowHeight) {
                 loadMoreFn();
             };
-            console.log(top);
         }
         window.addEventListener('scroll', function(){
             if( this.props.isLoadingMore ) {
@@ -42,8 +40,6 @@ class LoadMore extends React.Component{
                 clearTimeout(timeoutId);
             }
             timeoutId = setTimeout(callback, 500)
-
-
         }.bind(this), false);
     }
 }

@@ -32,7 +32,7 @@ class Category extends React.Component{
                 <ReactSwipe id='home-category' className="carousel" swipeOptions={opt}>
                     <div  className='carousel-item'>
                         <ul className='clear-fix'>
-                            <li className="float-left">日本菜</li>
+                        <Link to='/search/ribencai'><li className="float-left">日本菜</li></Link>
                             <li className="float-left">SPA</li>
                             <li className="float-left">结婚</li>
                             <li className="float-left">学习培训</li>

@@ -10,7 +10,7 @@ class ListItem extends React.Component{
         const data = this.props.data;
         console.log('fxy ',data);
         return(
-            <div id='home-ad' className='clear-fix'>
+            <div className='clear-fix'>
                 {data.map((item, index) => {
                     return <Item data={item} key={index}/>
                 })}

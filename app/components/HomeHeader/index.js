@@ -7,9 +7,6 @@ import SearchInput from '../SearchInput';
 class HomeHeader extends React.Component{
     constructor(props, context){
         super(props, context);
-        this.state = {
-            value: ''
-        }
     }
     render(){
         return(
@@ -27,7 +24,7 @@ class HomeHeader extends React.Component{
                 <div className='home-header-middle'>
                     <div className='search-container'>
                         <i className='icon-search'></i>
-                        <SearchInput value='' enterHandle={this.inputValueKey.bind(this)}/>
+                        <SearchInput keyword='' enterHandle={this.inputValueKey.bind(this)}/>
                     </div>
                 </div>
             </div>
@@ -35,8 +32,7 @@ class HomeHeader extends React.Component{
     }
     // 接收回车
     inputValueKey(value){
-
-        // hashHistory.push('/search/all/' + encodeURIComponent(this.state.value))
+        hashHistory.push('/search/all/' + encodeURIComponent(value) );
         console.log(value);
     }
 }

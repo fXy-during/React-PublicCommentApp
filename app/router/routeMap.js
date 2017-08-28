@@ -8,7 +8,6 @@ import App from '../containers/App';
 import City from '../containers/City';
 import Search from '../containers/Search';
 import User from '../containers/User';
-
 class RouteMap extends React.Component {
 
 updateHandle() { 

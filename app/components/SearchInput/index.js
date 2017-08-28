@@ -6,7 +6,7 @@ class SearchInput extends React.Component{
     constructor(props, context){
         super(props, context);
         this.state = {
-            value: ''
+            value: this.props.keyword || ''
         }
     }
     render(){
