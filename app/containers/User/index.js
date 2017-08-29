@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 import UserInfo from '../../components/UserInfo'
 import OrderList from './subpage';
+
 class User extends React.Component{
     constructor(props, context){
         super(props, context);
@@ -22,7 +23,7 @@ class User extends React.Component{
         return(
             <div>
                 <Header title='用户中心' backRouter='/'/>
-                <UserInfo cityName={ity}
+                <UserInfo cityName={city}
                     userName={user} />
                 <OrderList userName={user}/>
             </div>
