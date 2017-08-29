@@ -8,6 +8,7 @@ import App from '../containers/App';
 import City from '../containers/City';
 import Search from '../containers/Search';
 import User from '../containers/User';
+import Login from '../containers/Login';
 class RouteMap extends React.Component {
 
 updateHandle() { 
@@ -24,7 +25,8 @@ updateHandle() {
                     <Route path='/city' component={City}/>
                     <Route path='/User' component={User}/>
                     <Route path='/search/:type(/:keyword)' component={Search}/>
-                    <Route path='/detail/:id' component={Detail}/>  
+                    <Route path='/detail/:id' component={Detail}/> 
+                    <Route path='/login(/:router)' component={Login} /> 
                     <Route path="*" component={NotFound}/> 
                 </Route> 
             </Router> 

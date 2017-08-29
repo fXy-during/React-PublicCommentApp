@@ -104,6 +104,24 @@ router.get('/api/detail/comment/:page/:id', async(ctx, next) =>{
 
     ctx.response.body = comment;
 })
+
+//   用户已购买列表
+var orderlist = require('./orderlist/index.js');
+router.get('/api/orderlist/:username', async(ctx, next) =>{
+
+    ctx.response.body = orderlist;
+})
+
+// 提交评论
+router.post('/api/submitComment', async(ctx, next) =>{
+
+    ctx.response.body = {
+        errno: 0 ,
+        msg: 'ok'
+    }
+})
+
+
 // router.post('/api/post', koaBody, function *(next) {
 //     console.log(this.request.body);
 //     this.body = JSON.stringify(this.request.body);

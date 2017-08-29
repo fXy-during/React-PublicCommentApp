@@ -1,4 +1,4 @@
-import * as actionTypes from '../constants'
+import * as actionTypes from '../constants/index'
 
 export function update(data){
     return {

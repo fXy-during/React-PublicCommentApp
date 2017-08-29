@@ -1,5 +1,5 @@
 import  React from 'react';
-
+import { Link, hashHistory } from 'react-router';
 import './style.less';
 
 class Header extends React.Component{
@@ -16,12 +16,22 @@ class Header extends React.Component{
                 <h1>
                     {this.props.title}
                 </h1>
+                <span className='header-home'>
+                <Link to='/'>
+                Home
+                </Link>
+                </span>
             </div>
 
         )
     }
     clickHander() {
-        window.history.back()
+        const backRouter = this.props.backRouter;
+        if( !!backRouter ){
+            hashHistory.push(backRouter);
+        } else {
+            window.history.back()
+        }
     }
 }
 

@@ -26,11 +26,13 @@ class Info extends React.Component{
         this.infoData();
     }
     render(){
-        console.log(' info :',this.state.info)
         return(
             <div>
-                <DetailInfo data={this.state.info}/>
 
+                {
+                    this.state.info ? <DetailInfo data={this.state.info}/> : <div>loading.....</div>
+                }
+                
             </div>
 
         )
