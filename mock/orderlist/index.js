@@ -5,7 +5,7 @@ module.exports = [
         title: '汉堡大王',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 1
     },
     {
         id: Date.now(),

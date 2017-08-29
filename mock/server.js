@@ -22,7 +22,7 @@ app.use(async(ctx, next)=>{
 //     ctx.response.body = 'Hello Koa!';
 // })
 
-router.get('/api/1', async(ctx, next)=>{
+router.get('/api/1', (ctx, next)=>{
     ctx.response.body = 'test data 1'
 });
 router.get('/api/3', async(ctx, next)=>{
@@ -113,14 +113,23 @@ router.get('/api/orderlist/:username', async(ctx, next) =>{
 })
 
 // 提交评论
-router.post('/api/submitComment', async(ctx, next) =>{
+// router.post('/api/submitComment', async(ctx, next) =>{
+
+//     ctx.response.body = {
+//         errno: 0 ,
+//         msg: 'ok'
+//     }
+// })
+router.post('/api/submitComment', (ctx, next) =>{
+    console.log('提交评论')
+
+    // 获取参数
 
     ctx.response.body = {
-        errno: 0 ,
+        errno: 0,
         msg: 'ok'
     }
 })
-
 
 // router.post('/api/post', koaBody, function *(next) {
 //     console.log(this.request.body);

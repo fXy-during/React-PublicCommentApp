@@ -35,11 +35,22 @@ class OrderList extends React.Component{
             <div>
             <h2>您的订单</h2>
             {
-                this.state.data.length ? <OrderListComponent data={this.state.data} /> : <div>loading....</div>
+                this.state.data.length ? <OrderListComponent data={this.state.data} submitComment={this.submitComment.bind(this)}/> : <div>loading....</div>
             }
             </div>
 
         )
+    }
+    submitComment(id, value, callback) {
+        const result = postComment(id, value);
+        result.then(res => {
+            return res.json()
+        }).then(json =>{
+            if (json.errno === 0) {
+                // 评论成功，回调
+                callback();
+            }
+        })
     }
 }
 
