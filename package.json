@@ -4,7 +4,8 @@
   "description": "music player build with react, redux and react-router with the help of webpack.",
   "main": "app/index.js",
   "scripts": {
-    "start": " webpack-dev-server --progress --colors",
+    "ENV": "export NODE_ENV=dev",
+    "start": " webpack-dev-server  --progress --colors",
     "build": "webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
     "mock": "node --harmony ./mock/server.js"

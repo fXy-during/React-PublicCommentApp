@@ -55,7 +55,9 @@ class Comment extends React.Component{
                 page: page + 1
             })
         }).catch(ex => {
-            console.log('店家评论数据获取失败', ex.message)
+            if (__DEV__) { // 如果当前是开发环境
+                console.log('店家评语加载发生错误', ex.message);
+            }
         })
     }
 

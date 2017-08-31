@@ -61,6 +61,10 @@ class SearchList extends React.Component{
                 //拼接数据
                 data: this.state.data.concat(data)
             })
+        }).catch(ex => {
+            if (__DEV__) { // 如果当前是开发环境
+                console.log('搜索过程发生错误', ex.message);
+            }
         })
     }
 

@@ -8,7 +8,6 @@ class ListItem extends React.Component{
 
     render(){
         const data = this.props.data;
-        console.log('fxy ',data);
         return(
             <div className='clear-fix'>
                 {data.map((item, index) => {

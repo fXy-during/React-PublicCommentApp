@@ -23,6 +23,10 @@ class Ad extends React.Component {
                     data: data
                 })
             }
+        }).catch(ex => {
+            if (__DEV__) { // 如果当前是开发环境
+                console.log('广告加载过程发生错误', ex.message);
+            }
         })
     }
     render(){

@@ -10,6 +10,9 @@ import Ad from './subpage/Ad';
 import List from './subpage/List';
 
 class Home extends React.Component {
+    componentDidMount() {
+        console.log('__DEV__ :', __DEV__);
+    }
     render(){
         return(
             <div>

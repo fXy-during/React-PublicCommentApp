@@ -50,6 +50,10 @@ class OrderList extends React.Component{
                 // 评论成功，回调
                 callback();
             }
+        }).catch(ex => {
+            if (__DEV__) { // 如果当前是开发环境
+                console.log('评论提交过程发生错误', ex.message);
+            }
         })
     }
 }

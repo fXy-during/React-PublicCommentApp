@@ -52,6 +52,10 @@ class AdList extends React.Component{
                 hasMore: hasMore,
                 data: this.state.data.concat(data)
             })
+        }).catch(ex => {
+            if (__DEV__) { // 如果当前是开发环境
+                console.log('猜你喜欢加载过程发生错误', ex.message);
+            }
         })
     }
 
